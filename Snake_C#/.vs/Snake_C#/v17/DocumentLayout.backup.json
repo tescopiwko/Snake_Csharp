@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:snake_c#.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\asus\\documents\\programming\\c#\\snake_csharp\\snake_c#\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\asus\\documents\\programming\\c#\\snake_csharp\\snake_c#\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\asus\\documents\\programming\\c#\\snake_csharp\\snake_c#\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Food.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\programming\\C#\\Snake_Csharp\\Snake_C#\\Food.cs",
               "RelativeDocumentMoniker": "Food.cs",
@@ -38,12 +38,11 @@
               "RelativeToolTip": "Food.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T14:04:50.66Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T14:04:50.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\programming\\C#\\Snake_Csharp\\Snake_C#\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -57,7 +56,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Snake_C#",
+              "Title": "Snake_C#.csproj",
               "DocumentMoniker": "C:\\Users\\ASUS\\Documents\\programming\\C#\\Snake_Csharp\\Snake_C#\\Snake_C#.csproj",
               "RelativeDocumentMoniker": "Snake_C#.csproj",
               "ToolTip": "C:\\Users\\ASUS\\Documents\\programming\\C#\\Snake_Csharp\\Snake_C#\\Snake_C#.csproj",
@@ -75,7 +74,7 @@
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "C:\\Users\\ASUS\\Documents\\programming\\C#\\Snake_Csharp\\Snake_C#\\Game1.cs*",
               "RelativeToolTip": "Game1.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAowIwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T11:32:47.871Z",
               "EditorCaption": ""

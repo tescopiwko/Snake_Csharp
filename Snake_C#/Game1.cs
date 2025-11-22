@@ -48,7 +48,6 @@ namespace Snake_C_
             snake.Add(new Point(10, 10));
             snake.Add(new Point(9, 10));
             snake.Add(new Point(8, 10));
-
             SpawnFood();
         }
 
@@ -132,6 +131,14 @@ namespace Snake_C_
             {
                 ResetGame();
                 return;
+            }
+            for (int i = 1; i < snake.Count; i++)
+            {
+                if (snake[0] == snake[i])
+                {
+                    ResetGame();
+                    return;
+                }
             }
         }
 
