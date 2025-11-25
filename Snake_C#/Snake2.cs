@@ -1,14 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
+
 namespace Snake_C_
 {
-    internal class Snake
+    internal class Snake2
     {
         public List<Point> Body { get; private set; } = new List<Point>();
         public Point Direction { get; set; } = new Point(1, 0);
 
-        public Snake()
+        public Snake2()
         {
             Reset();
         }
@@ -16,9 +17,9 @@ namespace Snake_C_
         public void Reset()
         {
             Body.Clear();
-            Body.Add(new Point(10, 10));
-            Body.Add(new Point(9, 10));
-            Body.Add(new Point(8, 10));
+            Body.Add(new Point(12, 6));
+            Body.Add(new Point(11, 6));
+            Body.Add(new Point(10, 6));
             Direction = new Point(1, 0);
         }
 
@@ -46,7 +47,7 @@ namespace Snake_C_
             return false;
         }
 
-        public bool CollidesWithBody(int maxX, int maxY)
+        public bool CollidesWithWalls(int maxX, int maxY)
         {
             return
                 Body[0].X < 0 || Body[0].X >= maxX ||
@@ -56,3 +57,5 @@ namespace Snake_C_
     }
 }
     
+    
+

@@ -13,11 +13,12 @@ namespace Snake_C_
         private SpriteBatch _spriteBatch;
 
         Texture2D pixel;
-        Snake snake;
+        Snake1 snake1;
+        Snake2 snake2;
         Food food;
 
         int cellSize = 20;
-        int updateSpeed = 60;
+        int updateSpeed = 150;
         double timer = 0;
 
         public Game1()
@@ -42,7 +43,8 @@ namespace Snake_C_
             pixel = new Texture2D(GraphicsDevice, 1, 1);
             pixel.SetData(new[] { Color.White });
 
-            snake = new Snake();
+            snake1 = new Snake1();
+            snake2 = new Snake2();
             food = new Food(cellSize);
 
             SpawnFood();
@@ -56,17 +58,30 @@ namespace Snake_C_
             // TODO: Add your update logic here
             var k  = Keyboard.GetState();
 
-            if (k.IsKeyDown(Keys.Up) && snake.Direction != new Point(0,1))
-                snake.Direction = new Point(0, -1);
+            if (k.IsKeyDown(Keys.Up) && snake1.Direction != new Point(0,1))
+                snake1.Direction = new Point(0, -1);
 
-            if (k.IsKeyDown(Keys.Down) && snake.Direction != new Point(0,-1))
-                snake.Direction = new Point(0, 1);
+            if (k.IsKeyDown(Keys.Down) && snake1.Direction != new Point(0,-1))
+                snake1.Direction = new Point(0, 1);
 
-            if (k.IsKeyDown(Keys.Left) && snake.Direction != new Point(1, 0))
-                snake.Direction = new Point(-1, 0);
+            if (k.IsKeyDown(Keys.Left) && snake1.Direction != new Point(1, 0))
+                snake1.Direction = new Point(-1, 0);
 
-            if (k.IsKeyDown(Keys.Right) && snake.Direction != new Point(-1, 0))
-                snake.Direction = new Point(1, 0);
+            if (k.IsKeyDown(Keys.Right) && snake1.Direction != new Point(-1, 0))
+                snake1.Direction = new Point(1, 0);
+
+
+            if (k.IsKeyDown(Keys.W) && snake2.Direction != new Point(0, 1))
+                snake2.Direction = new Point(0, -1);
+
+            if (k.IsKeyDown(Keys.S) && snake2.Direction != new Point(0, -1))
+                snake2.Direction = new Point(0, 1);
+
+            if (k.IsKeyDown(Keys.A) && snake2.Direction != new Point(1, 0))
+                snake2.Direction = new Point(-1, 0);
+
+            if (k.IsKeyDown(Keys.D) && snake2.Direction != new Point(-1, 0))
+                snake2.Direction = new Point(1, 0);
 
             timer += gameTime.ElapsedGameTime.TotalMilliseconds;
 
@@ -74,22 +89,40 @@ namespace Snake_C_
             {
                 timer = 0;
 
-                snake.Move();
+                snake1.Move();
+                snake2.Move();
 
                 int maxX = _graphics.PreferredBackBufferWidth / cellSize;
                 int maxY = _graphics.PreferredBackBufferHeight / cellSize;
 
-                if (snake.Body[0] == food.Position)
+                if (snake1.Body[0] == food.Position)
                 {
-                    snake.Grow();
+                    snake1.Grow();
                     SpawnFood();
                 }
-                
-                if (snake.CollidesWithBody(maxX, maxY) || snake.CollidesWithSelf())
+
+                if (snake2.Body[0] == food.Position)
                 {
-                    snake.Reset();
+                    snake2.Grow();
                     SpawnFood();
                 }
+
+                if (snake1.CollidesWithWalls(maxX, maxY) || snake1.CollidesWithSelf())
+                {
+                    snake1.Reset();
+                    snake2.Reset();
+                    SpawnFood();
+                }
+
+                if (snake2.CollidesWithWalls(maxX, maxY) || snake2.CollidesWithSelf())
+                {
+                    snake1.Reset();
+                    snake2.Reset();
+                    SpawnFood();
+                }
+
+                CollidesWithAnother();
+
             }
             base.Update(gameTime);
         }
@@ -101,11 +134,16 @@ namespace Snake_C_
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-            foreach (var part in snake.Body)
+            foreach (var part in snake1.Body)
             {
-                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Green);
+                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.White);
             }
-            
+
+            foreach (var part in snake2.Body)
+            {
+                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Black);
+            }
+
             food.Draw(_spriteBatch, pixel);
 
             _spriteBatch.End();
@@ -118,6 +156,43 @@ namespace Snake_C_
             int maxY = _graphics.PreferredBackBufferHeight / cellSize;
 
             food.Spawn(maxX, maxY);
+        }
+
+        void CollidesWithAnother()
+        {
+            Point head1 = snake1.Body[0];
+            Point head2 = snake2.Body[0];
+
+            // kolize hlavy prvniho hada se telem druheho hada 
+            for (int i = 1; i < snake2.Body.Count; i++)
+            {
+                if (head1 == snake2.Body[i])
+                {
+                    snake1.Reset();
+                    snake2.Reset();
+                    SpawnFood();
+                    return;
+                }
+            }
+
+            // opak - kolize hlavy druheho hada s telem prvniho hada
+            for (int i =1; i < snake1.Body.Count; i++)
+            {
+                if (head2 == snake1.Body[i])
+                {
+                    snake1.Reset();
+                    snake2.Reset();
+                    SpawnFood();
+                    return;
+                }
+            }
+            if (head1 == head2)
+            {
+                // Obě hlavy na stejném políčku
+                snake1.Reset();
+                snake2.Reset();
+                SpawnFood();
+            }
         }
     }
 }
