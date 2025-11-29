@@ -2,17 +2,15 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Snake_Game
+namespace Snake_C_
 {
-    internal class Food
+    internal class Food : Renderable
     {
         public Point Position { get; private set; }
-        private int _cellSize;
         private Random _random;
 
         public Food(int cellSize)
         {
-            _cellSize = cellSize;
             _random = new Random();
         }
 
@@ -21,9 +19,9 @@ namespace Snake_Game
             Position = new Point(_random.Next(0, maxX), _random.Next(0, maxY));
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D pixel)
+        public void Draw(SpriteBatch spriteBatch, Texture2D pixel, int cellSize)
         {
-            spriteBatch.Draw(pixel, new Rectangle(Position.X * _cellSize, Position.Y * _cellSize, _cellSize, _cellSize), Color.Red);
+            spriteBatch.Draw(pixel, new Rectangle(Position.X * cellSize, Position.Y * cellSize, cellSize, cellSize), Color.Red);
         }
     }
 }

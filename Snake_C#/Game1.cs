@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Snake_Game;
+using Snake_C_;
 using System;
 using System.Collections.Generic;
 
@@ -144,7 +144,7 @@ namespace Snake_C_
                 _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Black);
             }
 
-            food.Draw(_spriteBatch, pixel);
+            food.Draw(_spriteBatch, pixel, cellSize);
 
             _spriteBatch.End();
 
