@@ -54,7 +54,7 @@ namespace Snake_C_
             }
             catch (Exception)
             {
-                _font = null; // game still runs, but on-screen text won't show
+                _font = null;
             }
 
             snake1 = new Snake1();
