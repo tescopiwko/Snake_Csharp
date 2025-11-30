@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\mates\\desktop\\c#\\snake_csharp\\snake_c#\\snake1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:snake1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\mates\\desktop\\c#\\snake_csharp\\snake_c#\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\mates\\desktop\\c#\\snake_csharp\\snake_c#\\renderable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:renderable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\mates\\desktop\\c#\\snake_csharp\\snake_c#\\snake1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|solutionrelative:snake1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E1DFA0CA-368B-4D16-A254-9F7845237BFC}|Snake_C#.csproj|c:\\users\\mates\\desktop\\c#\\snake_csharp\\snake_c#\\snake_c#.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -34,7 +34,7 @@
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 253,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -42,7 +42,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Renderable.cs",
               "DocumentMoniker": "C:\\Users\\Mates\\Desktop\\C#\\Snake_Csharp\\Snake_C#\\Renderable.cs",
               "RelativeDocumentMoniker": "Renderable.cs",
@@ -67,20 +67,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Snake1.cs",
               "DocumentMoniker": "C:\\Users\\Mates\\Desktop\\C#\\Snake_Csharp\\Snake_C#\\Snake1.cs",
               "RelativeDocumentMoniker": "Snake1.cs",
               "ToolTip": "C:\\Users\\Mates\\Desktop\\C#\\Snake_Csharp\\Snake_C#\\Snake1.cs",
               "RelativeToolTip": "Snake1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-23T10:10:35.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Food.cs",
               "DocumentMoniker": "C:\\Users\\Mates\\Desktop\\C#\\Snake_Csharp\\Snake_C#\\Food.cs",
               "RelativeDocumentMoniker": "Food.cs",
@@ -99,7 +99,7 @@
               "RelativeDocumentMoniker": "Game1.cs",
               "ToolTip": "C:\\Users\\Mates\\Desktop\\C#\\Snake_Csharp\\Snake_C#\\Game1.cs*",
               "RelativeToolTip": "Game1.cs*",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAcwJIAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAANEAAAAAAAAAAAAAAOoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T11:32:47.871Z",
               "EditorCaption": ""
@@ -126,8 +126,7 @@
               "RelativeToolTip": "Snake_C#.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-22T12:53:37.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T12:53:37.433Z"
             }
           ]
         }

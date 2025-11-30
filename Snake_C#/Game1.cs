@@ -13,6 +13,8 @@ namespace Snake_C_
         private SpriteBatch _spriteBatch;
 
         Texture2D pixel;
+        SpriteFont _font;
+
         Snake1 snake1;
         Snake2 snake2;
         Food food;
@@ -20,6 +22,9 @@ namespace Snake_C_
         int cellSize = 20;
         int updateSpeed = 150;
         double timer = 0;
+
+        private int score1 = 0;
+        private int score2 = 0; 
 
         public Game1()
         {
@@ -43,11 +48,22 @@ namespace Snake_C_
             pixel = new Texture2D(GraphicsDevice, 1, 1);
             pixel.SetData(new[] { Color.White });
 
+            try
+            {
+                _font = Content.Load<SpriteFont>("ScoreFont");
+            }
+            catch (Exception)
+            {
+                _font = null; // game still runs, but on-screen text won't show
+            }
+
             snake1 = new Snake1();
             snake2 = new Snake2();
             food = new Food(cellSize);
 
             SpawnFood();
+
+            UpdateWindowTitle();
         }
 
         protected override void Update(GameTime gameTime)
@@ -109,16 +125,14 @@ namespace Snake_C_
 
                 if (snake1.CollidesWithWalls(maxX, maxY) || snake1.CollidesWithSelf())
                 {
-                    snake1.Reset();
-                    snake2.Reset();
-                    SpawnFood();
+                    AddPointToSnake2();
+                    ResetRound();
                 }
 
                 if (snake2.CollidesWithWalls(maxX, maxY) || snake2.CollidesWithSelf())
                 {
-                    snake1.Reset();
-                    snake2.Reset();
-                    SpawnFood();
+                    AddPointToSnake1();
+                    ResetRound();
                 }
 
                 CollidesWithAnother();
@@ -136,16 +150,26 @@ namespace Snake_C_
 
             foreach (var part in snake1.Body)
             {
-                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.White);
+                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Orange);
             }
 
             foreach (var part in snake2.Body)
             {
-                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Black);
+                _spriteBatch.Draw(pixel, new Rectangle(part.X * cellSize, part.Y * cellSize, cellSize, cellSize), Color.Green);
             }
 
             food.Draw(_spriteBatch, pixel, cellSize);
 
+
+            if (_font != null)
+            {
+                _spriteBatch.DrawString(_font, $"Orange: {score1}", new Vector2(10, 10), Color.Black);
+
+                string scoreSnake2 = $"Green: {score2}";
+                Vector2 size = _font.MeasureString(scoreSnake2);
+                float x = _graphics.PreferredBackBufferWidth - size.X - 10;
+                _spriteBatch.DrawString(_font, scoreSnake2, new Vector2(x, 10), Color.Black);
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);
@@ -168,9 +192,8 @@ namespace Snake_C_
             {
                 if (head1 == snake2.Body[i])
                 {
-                    snake1.Reset();
-                    snake2.Reset();
-                    SpawnFood();
+                    AddPointToSnake2();
+                    ResetRound();
                     return;
                 }
             }
@@ -180,20 +203,38 @@ namespace Snake_C_
             {
                 if (head2 == snake1.Body[i])
                 {
-                    snake1.Reset();
-                    snake2.Reset();
-                    SpawnFood();
+                    AddPointToSnake1();
+                    ResetRound();
                     return;
                 }
             }
             if (head1 == head2)
             {
                 // Obě hlavy na stejném políčku
-                snake1.Reset();
-                snake2.Reset();
-                SpawnFood();
+                ResetRound();
             }
         }
+        private void AddPointToSnake1()
+        {
+            score1++;
+            UpdateWindowTitle();
+        }
+        private void AddPointToSnake2()
+        {
+            score2++;
+            UpdateWindowTitle();
+        }
+        private void ResetRound()
+        {
+            snake1.Reset();
+            snake2.Reset();
+            SpawnFood();
+        }
+        private void UpdateWindowTitle()
+        {
+            Window.Title = $"Orange: {score1} - Green: {score2}"; 
+        }
+
     }
 }
         
