@@ -17,9 +17,9 @@ namespace Snake_C_
         public void Reset()
         {
             Body.Clear();
-            Body.Add(new Point(12, 6));
-            Body.Add(new Point(11, 6));
             Body.Add(new Point(10, 6));
+            Body.Add(new Point(9, 6));
+            Body.Add(new Point(8, 6));
             Direction = new Point(1, 0);
         }
 

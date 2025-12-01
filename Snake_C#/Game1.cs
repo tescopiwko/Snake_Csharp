@@ -20,11 +20,13 @@ namespace Snake_C_
         Food food;
 
         int cellSize = 20;
-        int updateSpeed = 150;
+        int updateSpeed = 90;
         double timer = 0;
 
         private int score1 = 0;
-        private int score2 = 0; 
+        private int score2 = 0;
+
+        private Color _backgroundColor = Color.CornflowerBlue;
 
         public Game1()
         {
@@ -123,19 +125,30 @@ namespace Snake_C_
                     SpawnFood();
                 }
 
-                if (snake1.CollidesWithWalls(maxX, maxY) || snake1.CollidesWithSelf())
+
+                bool died1 = snake1.CollidesWithWalls(maxX, maxY) || snake1.CollidesWithSelf();
+                bool died2 = snake2.CollidesWithWalls(maxX, maxY) || snake2.CollidesWithSelf();
+
+
+
+                if (died1 && died2)
+                {
+                    ResetRound();
+                }
+                else if (died1)
                 {
                     AddPointToSnake2();
                     ResetRound();
                 }
-
-                if (snake2.CollidesWithWalls(maxX, maxY) || snake2.CollidesWithSelf())
+                else if (died2)
                 {
                     AddPointToSnake1();
                     ResetRound();
                 }
-
-                CollidesWithAnother();
+                else
+                {
+                    CollidesWithAnother();
+                }
 
             }
             base.Update(gameTime);
@@ -143,7 +156,7 @@ namespace Snake_C_
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(_backgroundColor);
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
@@ -217,11 +230,13 @@ namespace Snake_C_
         private void AddPointToSnake1()
         {
             score1++;
+            SetBackgroundForWinner(true);
             UpdateWindowTitle();
         }
         private void AddPointToSnake2()
         {
             score2++;
+            SetBackgroundForWinner(false);
             UpdateWindowTitle();
         }
         private void ResetRound()
@@ -233,6 +248,11 @@ namespace Snake_C_
         private void UpdateWindowTitle()
         {
             Window.Title = $"Orange: {score1} - Green: {score2}"; 
+        }
+        private void SetBackgroundForWinner(bool orangeWins)
+        {
+            // blend CornflowerBlue toward winner color (subtle)
+            _backgroundColor =  orangeWins ? Color.LightYellow : Color.LightGreen;
         }
 
     }
